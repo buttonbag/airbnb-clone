@@ -6,7 +6,7 @@ function Card(props) {
 			<div className="card--photo">
 				{/* <div className="tag sold-out">SOLD OUT</div> */}
 				{/* <div className="card--online">ONLINE</div> */}
-				<img src={require(`../images/${props.img}`)} alt="" />
+				<img src={`../images/${props.img}`} alt="" />
 			</div>
 			<div className="card--info">
 				<div className="rating">
