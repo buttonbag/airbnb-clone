@@ -1,25 +1,33 @@
 import React from 'react';
 
 function Card(props) {
+	let badgeText
+	if (props.openSpots === 0) {
+		badgeText = "sold out"
+	} else if (props.location === "Online") {
+		badgeText = "online"
+	}
+
+
 	return (
-		<div className="card">
+		<div className="card" key={props.id}>
 			<div className="card--photo">
-				{/* <div className="tag sold-out">SOLD OUT</div> */}
-				{/* <div className="card--online">ONLINE</div> */}
-				<img src={`../images/${props.img}`} alt="" />
+				{badgeText && <div className="card--badge">{badgeText}</div>}
+				<img src={require(`../images/${props.img}`)} alt="" />
 			</div>
 			<div className="card--info">
 				<div className="rating">
-					<div className="rating--level">{props.rating}</div>
+					<div className="rating--level">{props.level}</div>
 					<div className="rating--total">({props.total})</div>
 					<div className="rating--location">• {props.location}</div>
 				</div>
-				<div className="name">{props.name}</div>
+				<div className="title">{props.title}</div>
 				<div className="price">
 					<strong>From ${props.price}</strong> / person
 				</div>
 			</div>
 		</div>
+
 	);
 }
 
