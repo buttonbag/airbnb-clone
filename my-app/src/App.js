@@ -8,18 +8,7 @@ import expData from './data';
 function App() {
 	const experiences = expData.map((exp) => {
 		// console.log(exp.coverImg);
-		return (
-			<Card
-				key={exp.id}
-				title={exp.title}
-				price={exp.price}
-				img={exp.coverImg}
-				level={exp.stats.rating}
-				total={exp.stats.reviewCount}
-				location={exp.location}
-				openSpots={exp.openSpots}
-			/>
-		);
+		return <Card key={exp.id} {...exp} />;
 	});
 	return (
 		<div className="main">
