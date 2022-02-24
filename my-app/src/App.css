@@ -40,19 +40,18 @@ section {
   width: 320px;
 }
 
-.card {
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+}
+.cards-container .card {
   width: 175px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
-.card--photo {
-  border-radius: 9px;
-  overflow: hidden;
-  width: 100%;
-  height: 235px;
-}
-.card--photo .tag {
+.cards-container .card--badge {
   font-size: 10px;
   padding: 4px 6px;
   border-radius: 3px;
@@ -62,24 +61,27 @@ section {
   top: 8px;
   text-transform: uppercase;
 }
-.card--photo .tag .sold-out {
-  content: "sold out";
+.cards-container .card--photo {
+  border-radius: 9px;
+  overflow: hidden;
+  width: 100%;
+  height: 235px;
 }
-.card--photo img {
+.cards-container .card--photo img {
   width: 100%;
 }
-.card--info {
+.cards-container .card--info {
   font-size: 12px;
   line-height: 1.8;
   margin: 9px auto;
 }
-.card--info .rating {
+.cards-container .card--info .rating {
   display: flex;
 }
-.card--info .rating--level {
+.cards-container .card--info .rating--level {
   margin: 0 1.5px;
 }
-.card--info .rating--level::before {
+.cards-container .card--info .rating--level::before {
   content: "";
   background: url("../src/images/star.svg");
   width: 12px;
@@ -87,13 +89,25 @@ section {
   display: inline-block;
   margin-right: 3px;
 }
-.card--info .rating--total {
+.cards-container .card--info .rating--total {
   margin: 0 1.5px;
   color: #918e9b;
 }
-.card--info .rating--location {
+.cards-container .card--info .rating--location {
   margin: 0 1.5px;
   color: #918e9b;
+}
+
+@media screen and (max-width: 928px) {
+  .cards-container {
+    flex-direction: column;
+  }
+  .cards-container .card {
+    width: 100%;
+  }
+  .cards-container .card--info {
+    font-size: calc(1vw + 1vh + 2vmin);
+  }
 }
 
 /*# sourceMappingURL=App.css.map */
